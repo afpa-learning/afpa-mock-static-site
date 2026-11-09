@@ -1,0 +1,85 @@
+:root {
+  --green: #86bc24;
+  --ink: #1e1e1c;
+  --muted: #5b5b57;
+  --bg: #ffffff;
+  --line: #e6e6e1;
+  --measure: 68ch;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #f2f2ee;
+    --muted: #b4b4ae;
+    --bg: #1e1e1c;
+    --line: #3a3a37;
+  }
+  /* le logo contient du texte noir : on le pose sur un fond clair */
+  .brand img { background: #fff; padding: .5rem 1rem; border-radius: 4px; }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-header,
+main,
+.site-footer {
+  width: 100%;
+  max-width: 62rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 2.5rem);
+}
+
+.site-header { padding-block: 1.5rem; }
+
+.brand { display: inline-block; line-height: 0; }
+.brand img { height: auto; width: clamp(120px, 20vw, 180px); }
+.brand:focus-visible,
+a:focus-visible { outline: 3px solid var(--green); outline-offset: 4px; }
+
+main { flex: 1; padding-block: clamp(2rem, 8vw, 5rem); }
+
+.intro {
+  border-left: 6px solid var(--green);
+  padding-left: clamp(1rem, 3vw, 2rem);
+  margin-bottom: clamp(2rem, 6vw, 4rem);
+}
+
+h1 {
+  margin: 0 0 1rem;
+  max-width: 22ch;
+  font-size: clamp(2rem, 5.5vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.lead {
+  margin: 0;
+  max-width: var(--measure);
+  font-size: 1.25rem;
+  color: var(--muted);
+}
+
+.content p { max-width: var(--measure); margin: 0 0 1.25rem; }
+
+.site-footer {
+  padding-block: 1.5rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: .9rem;
+}
+.site-footer p { margin: 0; }
